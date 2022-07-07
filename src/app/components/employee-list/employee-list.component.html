@@ -1,0 +1,68 @@
+<!--**********************************
+    Content body start
+***********************************-->
+<div class="content-body bg-back pt-0" >
+    <!-- row -->
+    <div class="container-fluid">
+        <div class="row" >
+
+            <div class="col-xl-12 col-lg-12 col-xxl-12 col-sm-12">
+                <div class="card  mb-4">
+                    <div class="card-header" style="position:relative">
+                        <h4 class="card-title fs-14">Conultants ITC</h4>
+                        <i style="position:absolute;top:15px;right:15px" (click)="openCreate()" class="fa fa-plus-circle fs-20"></i>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table verticle-middle table-responsive-md " style="overflow-x: hidden">
+                                <thead>
+                                    <tr >
+                                        <th scope="col" class="valign-m fs-12">Date Début</th>
+                                        <th scope="col" class="valign-m fs-12">DC à jour CUBE</th>
+                                        <th scope="col" class="valign-m fs-12">Rencontre Manager</th>
+                                        <th scope="col" class="valign-m fs-12">Statut ITC </th>
+                                        <th scope="col" class="valign-m fs-12">dept</th>
+                                        <th scope="col" class="valign-m fs-12">Consultant en ITC</th>
+                                        <th scope="col" class="valign-m fs-12">sponsor</th>
+                                        <th scope="col" class="valign-m fs-12">talent</th>
+                                        <th scope="col" class="valign-m fs-12">manager</th>
+                                        <th scope="col" class="valign-m fs-12">Actions commerciales </th>
+                                        <th scope="col" class="valign-m fs-12">MAJ DC </th>
+                                        <th scope="col" class="valign-m fs-12">Compétences principales </th>
+                                        <th scope="col" class="valign-m fs-12">Exp</th>
+                                        <th scope="col" class="valign-m fs-12">Domaine technique </th>
+                                        <th scope="col" class="valign-m fs-12">Contraintes Perso</th>
+                                        <th scope="col" class="valign-m fs-12">Mobilité France </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let tempEmployee of employees" class="valign-m fs-12">
+                                        <td>{{tempEmployee.dateStart | date:'d/MM/yyyy'}}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td> {{tempEmployee.dept}}  </td>
+                                        <td> {{tempEmployee.lastName}} {{tempEmployee.lastName}} <br> {{tempEmployee.email}}  </td>
+                                        <td> {{tempEmployee.sponsor}}  </td>
+                                        <td> {{tempEmployee.talent}}  </td>
+                                        <td> {{tempEmployee.manager}}  </td>
+                                        <td> {{tempEmployee.actions}}</td>
+                                        <td></td>
+                                        <td> {{tempEmployee.competences}}</td>
+                                        <td> {{tempEmployee.exp}}  </td>
+                                        <td>{{tempEmployee.domain}}</td>
+                                        <td>{{tempEmployee.seriousConstraint}}</td>
+                                        <td>{{tempEmployee.mobilityFr}}</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
+        </div>
+    </div>
+    
+</div>
