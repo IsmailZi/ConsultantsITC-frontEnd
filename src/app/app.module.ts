@@ -10,22 +10,27 @@ import { HeaderComponent } from './shared/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalEmployeeFormComponent } from './components/modals/modal-employee/modal-employee.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDialogModule} from '@angular/material/dialog';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalConfirmComponent } from './components/modals/modal-confirm/modal-confirm.component';
+ 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
     HeaderComponent,
+    ModalConfirmComponent,
     ModalEmployeeFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule,
+    FlexLayoutModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    ReactiveFormsModule,
+    NgbModule,
+    FormsModule
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]

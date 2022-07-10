@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">{{title}} </h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body"  >
+    
+
+  <div class=""  fxLayout="row" fxLayoutAlign="center center">
+    <p><strong>Voulez-vous retirer {{employee.lastName}} {{employee.firstName}} ?</strong></p>
+  </div>
+ 
+ 
+</div>
+<div class="mb-3" fxLayout="row" fxLayoutAlign="center center">
+  <button   class="btn btn-danger  " (click)="activeModal.dismiss('Cross click')">Annuler</button>
+  <button  class="btn btn-success  ml-2" (click)="confirmDelete()">Confirmer</button>
+</div>

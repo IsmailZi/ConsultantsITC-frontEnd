@@ -8,15 +8,23 @@
 
             <div class="col-xl-12 col-lg-12 col-xxl-12 col-sm-12">
                 <div class="card  mb-4">
-                    <div class="card-header" style="position:relative">
+                    <div class="card-header" style="position:relative; " fxLayout="row" fxLayoutAlign="start center">
                         <h4 class="card-title fs-14">Conultants ITC</h4>
-                        <i style="position:absolute;top:15px;right:15px" (click)="openCreate()" class="fa fa-plus-circle fs-20"></i>
+                        <div class="input-group " style="width:300px; margin-left: 165px;">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text fs-12" id="">Chercher</span>
+                            </div>
+                            <input type="text" (keyup)="searchChanged($event)" class="form-control">
+                          </div>
+ 
+                        <i   (click)="openCreate()" class="fa fa-plus-circle add-button fs-20"></i>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table verticle-middle table-responsive-md " style="overflow-x: hidden">
                                 <thead>
                                     <tr >
+                                        <th scope="col" class="valign-m fs-12">Actions</th>
                                         <th scope="col" class="valign-m fs-12">Date Début</th>
                                         <th scope="col" class="valign-m fs-12">DC à jour CUBE</th>
                                         <th scope="col" class="valign-m fs-12">Rencontre Manager</th>
@@ -36,13 +44,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let tempEmployee of employees" class="valign-m fs-12">
+                                    <tr *ngFor="let tempEmployee of employeesFiltred" class="valign-m fs-12">
+                                        <td fxLayout="row" fxLayoutAlign="space-between center">
+                                           <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                           <span (click)="openDelete(tempEmployee)" class="cursor-pointer">
+                                            <i class="fa fa-trash red" aria-hidden="true"></i>
+                                            </span>
+                                        </td>
                                         <td>{{tempEmployee.dateStart | date:'d/MM/yyyy'}}</td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
                                         <td> {{tempEmployee.dept}}  </td>
-                                        <td> {{tempEmployee.lastName}} {{tempEmployee.lastName}} <br> {{tempEmployee.email}}  </td>
+                                        <td> {{tempEmployee.lastName}} {{tempEmployee.firstName}} <br> {{tempEmployee.email}}  </td>
                                         <td> {{tempEmployee.sponsor}}  </td>
                                         <td> {{tempEmployee.talent}}  </td>
                                         <td> {{tempEmployee.manager}}  </td>
@@ -64,5 +78,6 @@
  
         </div>
     </div>
+
     
 </div>

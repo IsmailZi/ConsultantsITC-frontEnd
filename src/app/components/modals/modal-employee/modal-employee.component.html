@@ -1,14 +1,120 @@
   <div class="modal-header" >
-    <h4 class="modal-title" id="modal-basic-title">{{title}} </h4>
+    <h4 class="modal-title fs-16" id="modal-basic-title">{{title}} </h4>
     <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   
   <div class="modal-body"  >
-		hiii
+		<form [formGroup]="formEmployee">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="lastName" class="fs-12">Nom</label>
+          <input type="text" class="form-control fs-12" id="lastName" name="lastName" formControlName="lastName">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="firstName" class="fs-12">Prénom</label>
+          <input type="text" class="form-control fs-12" id="firstName" name="firstName" formControlName="firstName">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="dateStart" class="fs-12">Date Début</label>
+          <div class="input-group">
+            <input class="form-control fs-12" placeholder="yyyy-mm-dd"
+                 id="dateStart" name="dp"  formControlName="dateStart" ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+     
+      <div class="form-row">
+        
+        <div class="form-group col-md-3">
+          <label for="dcUpdated" class="fs-12">DC à jour</label>
+          <select id="dcUpdated" class="custom-select fs-12" name="dcUpdated" formControlName="dcUpdated">
+            <option value="OK" >OK</option>
+            <option value="NOK">NOK</option>
+          </select>
+        </div>
+     
+        <div class="form-group col-md-3">
+          <label for="managerMeeting" class="fs-12">Rencontre Manager</label>
+          <select id="managerMeeting" class="custom-select fs-12" name="managerMeeting" formControlName="managerMeeting">
+            <option  >OK</option>
+            <option>NOK</option>
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="suiviStatus" class="fs-12">Status</label>
+          <select id="suiviStatus" class="custom-select fs-12" name="suiviStatus" formControlName="suiviStatus">
+            <option class=""  >Suivi sans action</option>
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="dept" class="fs-12">Dept</label>
+          <select id="dept" class="custom-select fs-12" name="dept" formControlName="dept">
+            <option  >DIGIT</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="sponsor" class="fs-12">Sponsor</label>
+          <input type="text" class="form-control fs-12" id="sponsor" name="sponsor" formControlName="sponsor">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="talent" class="fs-12">Talent</label>
+          <input type="text" class="form-control fs-12" id="talent" name="talent" formControlName="talent">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="manager" class="fs-12">Manager</label>
+          <input type="text" class="form-control fs-12" id="manager" name="manager" formControlName="manager">
+        </div>
+      </div>
+       
+      <div class="form-row">
+        <div class="form-group col-md-5">
+          <label for="domain" class="fs-12">Domaine</label>
+          <input type="text" class="form-control fs-12" id="domain" name="domain" formControlName="domain">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="majDC" class="fs-12">MAJ DC</label>
+          <select id="majDC" class="form-control fs-12" name="majDC" formControlName="majDC">
+            <option selected>Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="exp" class="fs-12">Exp</label>
+          <input type="text" class="form-control fs-12" id="exp" name="exp" formControlName="exp">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-check col-md-4 ml-4">
+          <input class="form-check-input" type="checkbox" id="seriousConstraint" name="seriousConstraint" formControlName="seriousConstraint">
+          <label class="form-check-label fs-12" for="seriousConstraint">
+            Contrainte Perso
+          </label>
+        </div>
+        <div class="form-check col-md-4">
+          <input class="form-check-input" type="checkbox" id="mobilityFr" name="mobilityFr" formControlName="mobilityFr">
+          <label class="form-check-label fs-12" for="mobilityFr">
+            Mobilité France
+          </label>
+        </div>
+        
+      </div>
+    </form>
 
 
-		<button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss('cancel click')">Annuler</button>
-    <button  class="btn btn-success btn-block" (click)="confirm()" >Confirmer</button>
+	
 	</div>
+  <div class=" mb-3" fxLayout="row" fxLayoutAlign="center center">
+    <button   class="btn btn-danger " (click)="activeModal.dismiss('cancel click')">Annuler</button>
+    <button   class="btn btn-success  ml-2" [disabled]="!formEmployee.valid" (click)="confirm()" >Confirmer</button>
+  </div>
+
+ 

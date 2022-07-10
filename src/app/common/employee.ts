@@ -3,7 +3,7 @@ export class Employee {
     dateStart!: Date;
     firstName!: string;
     lastName!: string;
-    email!: string;
+    email!: string; 
     phone!: string;
     dept!: string;
     sponsor!: string;
@@ -14,5 +14,10 @@ export class Employee {
     competences!: string;
     domain!: string;
     seriousConstraint!: boolean;
+    majDC!: string;
+    suiviStatus!: string;
     mobilityFr!: boolean;
+    managerMeeting!: string;
+    dcUpdated!: string
 }
+
