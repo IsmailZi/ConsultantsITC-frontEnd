@@ -15,7 +15,7 @@ export class Employee {
     domain!: string;
     seriousConstraint!: boolean;
     majDC!: string;
-    suiviStatus!: string;
+    statusOfChecking!: string;
     mobilityFr!: boolean;
     managerMeeting!: string;
     dcUpdated!: string

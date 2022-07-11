@@ -26,6 +26,17 @@ export class EmployeeService {
     return this.httpClient.post<any>(this.baseUrl, employee);
   }
 
+  public editEmployee(employee: Employee): Observable<any> {
+    return this.httpClient.post<any>(this.baseUrl, employee);
+  }
+
+  public updateEmployee(id: number, employee: Employee): Observable<Employee> {
+    return this.httpClient.put<Employee>(this.baseUrl + '/' + id, JSON.stringify(employee), this.httpOptions)
+    .pipe(
+      catchError(this.errorHandl)
+    )
+  }
+
   public deleteEmployee(id: number){
     return this.httpClient.delete(this.baseUrl+'/'+ id, {responseType: 'text'}).pipe(
       catchError(this.errorHandl)

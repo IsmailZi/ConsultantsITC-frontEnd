@@ -44,6 +44,18 @@ export class EmployeeListComponent implements OnInit {
     });
   }
 
+  openEdit(tempEmployee: Employee){
+    const modalRef = this.modalService.open(ModalEmployeeFormComponent);
+    modalRef.componentInstance.title = 'Modifier';
+    modalRef.componentInstance.employee = tempEmployee;
+    modalRef.componentInstance.onSubmit.subscribe((employee: Employee) => {
+      this.employeeService.updateEmployee(employee.id, employee).subscribe(() => {
+        this.listEmployees();
+        modalRef.close();
+      })
+    });
+  }
+
   openDelete(tempEmployee: Employee){
     const modalRef = this.modalService.open(ModalConfirmComponent);
     modalRef.componentInstance.title = 'Supprimer';

@@ -9,7 +9,7 @@
             <div class="col-xl-12 col-lg-12 col-xxl-12 col-sm-12">
                 <div class="card  mb-4">
                     <div class="card-header" style="position:relative; " fxLayout="row" fxLayoutAlign="start center">
-                        <h4 class="card-title fs-14">Conultants ITC</h4>
+                        <h4 class="card-title fs-14">Liste des conultants ITC</h4>
                         <div class="input-group " style="width:300px; margin-left: 165px;">
                             <div class="input-group-prepend">
                               <span class="input-group-text fs-12" id="">Chercher</span>
@@ -17,7 +17,7 @@
                             <input type="text" (keyup)="searchChanged($event)" class="form-control">
                           </div>
  
-                        <i   (click)="openCreate()" class="fa fa-plus-circle add-button fs-20"></i>
+                        <i (click)="openCreate()" class="fa fa-plus-circle add-button fs-20"></i>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -46,27 +46,35 @@
                                 <tbody>
                                     <tr *ngFor="let tempEmployee of employeesFiltred" class="valign-m fs-12">
                                         <td fxLayout="row" fxLayoutAlign="space-between center">
-                                           <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                           <span (click)="openEdit(tempEmployee)" class="cursor-pointer">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            </span>
                                            <span (click)="openDelete(tempEmployee)" class="cursor-pointer">
-                                            <i class="fa fa-trash red" aria-hidden="true"></i>
+                                                <i class="fa fa-trash red" aria-hidden="true"></i>
                                             </span>
                                         </td>
                                         <td>{{tempEmployee.dateStart | date:'d/MM/yyyy'}}</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{tempEmployee.dcUpdated}}</td>
+                                        <td>{{tempEmployee.managerMeeting}}</td>
+                                        <td>{{tempEmployee.statusOfChecking}}</td>
                                         <td> {{tempEmployee.dept}}  </td>
                                         <td> {{tempEmployee.lastName}} {{tempEmployee.firstName}} <br> {{tempEmployee.email}}  </td>
                                         <td> {{tempEmployee.sponsor}}  </td>
                                         <td> {{tempEmployee.talent}}  </td>
                                         <td> {{tempEmployee.manager}}  </td>
                                         <td> {{tempEmployee.actions}}</td>
-                                        <td></td>
+                                        <td>  {{tempEmployee.majDC}}</td>
                                         <td> {{tempEmployee.competences}}</td>
                                         <td> {{tempEmployee.exp}}  </td>
                                         <td>{{tempEmployee.domain}}</td>
-                                        <td>{{tempEmployee.seriousConstraint}}</td>
-                                        <td>{{tempEmployee.mobilityFr}}</td>
+                                        <td>
+                                            <i *ngIf="tempEmployee.seriousConstraint" class="fa fa-check-square-o" aria-hidden="true"></i>
+                                            <i *ngIf="!tempEmployee.seriousConstraint" class="fa fa-square-o" aria-hidden="true"></i>
+                                        </td>
+                                        <td>
+                                            <i *ngIf="tempEmployee.mobilityFr" class="fa fa-check-square-o" aria-hidden="true"></i>
+                                            <i *ngIf="!tempEmployee.mobilityFr" class="fa fa-square-o" aria-hidden="true"></i>
+                                        </td>
                                     </tr>
                                     
                                 </tbody>
