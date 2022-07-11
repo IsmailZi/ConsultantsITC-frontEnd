@@ -49,7 +49,10 @@ export class EmployeeListComponent implements OnInit {
     modalRef.componentInstance.title = 'Modifier';
     modalRef.componentInstance.employee = tempEmployee;
     modalRef.componentInstance.onSubmit.subscribe((employee: Employee) => {
-      this.employeeService.updateEmployee(employee.id, employee).subscribe(() => {
+      console.log('employee to update:',employee)
+
+      this.employeeService.updateEmployee(employee.id, employee).subscribe((result) => {
+        console.log('result:', result);
         this.listEmployees();
         modalRef.close();
       })

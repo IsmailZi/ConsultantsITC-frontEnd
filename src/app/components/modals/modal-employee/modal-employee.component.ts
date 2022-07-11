@@ -72,7 +72,6 @@ export class ModalEmployeeFormComponent implements OnInit {
     if(!this.employee) this.employee = new Employee();
     this.employee.firstName = employeeForm.firstName
     this.employee.lastName = employeeForm.lastName 
-    
     // convert datepicker value to Date
     let dateStart = new Date()
     dateStart.setMonth(employeeForm.dateStart.month-1)
